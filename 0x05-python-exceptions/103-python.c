@@ -46,7 +46,7 @@ void print_python_bytes(PyObject *p)
 	string = (assert(PyBytes_Check(p)), (((PyBytesObject *)(p))->ob_sval));
 	printf("  trying string: %s\n", string);
 	printf("  first %zd bytes:", size < 10 ? size + 1 : 10);
-	while (x < size + 1 && x < 10)
+	while (i < size + 1 && i < 10)
 	{
 		printf(" %02hhx", string[x]);
 		x++;
@@ -72,7 +72,7 @@ void print_python_list(PyObject *p)
 		size = PyList_GET_SIZE(p);
 		printf("[*] Size of the Python List = %zd\n", size);
 		printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
-		while (i < size)
+		while (x < size)
 		{
 			item = PyList_GET_ITEM(p, x);
 			printf("Element %d: %s\n", x, item->ob_type->tp_name);
