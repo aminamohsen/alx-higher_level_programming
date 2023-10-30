@@ -73,7 +73,7 @@ def xout(board, row, col):
         if k >= len(board):
             break
         board[x][k] = "x"
-        c += 1
+        k += 1
     # X out all spots diagonally up to the left
     k = col - 1
     for x in range(row - 1, -1, -1):
