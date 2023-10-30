@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Solves the N-queens puzzle.
 
+
 Determines all possible solutions to placing N
 N non-attacking queens on an NxN chessboard.
 
@@ -18,6 +19,7 @@ where `x` and `k` represent the row and column, respectively, where a
 queen must be placed on the chessboard.
 """
 import sys
+
 
 def init_board(n):
     """Initialize an `n`x`n` sized chessboard with 0's."""
