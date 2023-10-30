@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines a Rectangle class."""
 
+
 class Rectangle:
     """Represent a rectangle."""
 
@@ -59,8 +60,8 @@ class Rectangle:
             return ("")
 
         rect = []
-        for x in range(self.__height):
+        for i in range(self.__height):
             [rect.append('#') for j in range(self.__width)]
-            if x != self.__height - 1:
+            if i != self.__height - 1:
                 rect.append("\n")
         return ("".join(rect))
