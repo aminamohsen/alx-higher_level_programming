@@ -1,20 +1,20 @@
 #!/usr/bin/python3
-"""Defines a rectangle class."""
+"""defines a rectangle class"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Represent a rectangle."""
+    """represent a rectangle"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initialize a new Rectangle.
+        """initialize a new Rectangle
 
         Args:
-            width (int): The width of the new Rectangle.
-            height (int): The height of the new Rectangle.
-            x (int): The x coordinate of the new Rectangle.
-            y (int): The y coordinate of the new Rectangle.
-            id (int): The identity of the new Rectangle.
+            width (int): The width of the new Rectangle
+            height (int): The height of the new Rectangle
+            x (int): The x coordinate of the new Rectangle
+            y (int): The y coordinate of the new Rectangle
+            id (int): The identity of the new Rectangle
         Raises:
             TypeError: If either of width or height is not an int.
             ValueError: If either of width or height <= 0.
@@ -29,7 +29,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Set/get the width of the Rectangle."""
+        """set/get the width of the Rectangle"""
         return self.__width
 
     @width.setter
@@ -42,7 +42,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Set/get the height of the Rectangle."""
+        """set/get the height of the Rectangle"""
         return self.__height
 
     @height.setter
@@ -55,7 +55,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Set/get the x coordinate of the Rectangle."""
+        """set/get the x coordinate of the Rectangle"""
         return self.__x
 
     @x.setter
@@ -68,7 +68,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Set/get the y coordinate of the Rectangle."""
+        """set/get the y coordinate of the Rectangle"""
         return self.__y
 
     @y.setter
@@ -78,4 +78,11 @@ class Rectangle(Base):
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
-
+    def validate_integer(self, name, value, eq=True):
+        '''Method for validating the value.'''
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if eq and value < 0:
+            raise ValueError("{} must be >= 0".format(name))
+        elif not eq and value <= 0:
+            raise ValueError("{} must be > 0".format(name))
