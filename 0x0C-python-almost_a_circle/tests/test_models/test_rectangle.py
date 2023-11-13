@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Module for Rectangle unit tests'''
+'''Module for Rectangle unit tests.'''
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -9,29 +9,29 @@ import io
 
 
 class TestRectangle(unittest.TestCase):
-    '''tests the Base class'''
+    '''Tests the Base class.'''
 
     def setUp(self):
-        '''imports module, instantiates class'''
+        '''Imports module, instantiates class'''
         Base._Base__nb_objects = 0
 
     def tearDown(self):
-        '''cleans up after each test_method'''
+        '''Cleans up after each test_method.'''
         pass
 
     # ----------------- Tests for #2 ------------------------
 
     def test_A_class(self):
-        '''tests Rectangle class type'''
+        '''Tests Rectangle class type.'''
         self.assertEqual(str(Rectangle),
                          "<class 'models.rectangle.Rectangle'>")
 
     def test_B_inheritance(self):
-        '''tests if Rectangle inherits Base'''
+        '''Tests if Rectangle inherits Base.'''
         self.assertTrue(issubclass(Rectangle, Base))
 
     def test_C_constructor_no_args(self):
-        '''tests constructor signature'''
+        '''Tests constructor signature.'''
         with self.assertRaises(TypeError) as e:
             r = Rectangle()
         s = "__init__() missing 2 required positional arguments: 'width' \
@@ -155,13 +155,13 @@ given"
     # ----------------- Tests for #3 ------------------------
 
     def invalid_types(self):
-        '''returns tuple of types for validation'''
+        '''Returns tuple of types for validation.'''
         t = (3.14, -1.1, float('inf'), float('-inf'), True, "str", (2,),
              [4], {5}, {6: 7}, None)
         return t
 
     def test_G_validate_type(self):
-        '''tests property validation.'''
+        '''Tests property validation.'''
         r = Rectangle(1, 2)
         attributes = ["x", "y", "width", "height"]
         for attribute in attributes:
@@ -172,7 +172,7 @@ given"
                 self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_negative_gt(self):
-        '''tests property validation'''
+        '''Tests property validation.'''
         r = Rectangle(1, 2)
         attributes = ["width", "height"]
         for attribute in attributes:
@@ -182,7 +182,7 @@ given"
             self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_negative_ge(self):
-        '''tests property validation'''
+        '''Tests property validation.'''
         r = Rectangle(1, 2)
         attributes = ["x", "y"]
         for attribute in attributes:
@@ -192,7 +192,7 @@ given"
             self.assertEqual(str(e.exception), s)
 
     def test_G_validate_value_zero(self):
-        '''tests property validation'''
+        '''Tests property validation.'''
         r = Rectangle(1, 2)
         attributes = ["width", "height"]
         for attribute in attributes:
@@ -202,7 +202,7 @@ given"
             self.assertEqual(str(e.exception), s)
 
     def test_H_property(self):
-        '''tests property setting/getting'''
+        '''Tests property setting/getting.'''
         r = Rectangle(1, 2)
         attributes = ["x", "y", "width", "height"]
         for attribute in attributes:
@@ -211,7 +211,7 @@ given"
             self.assertEqual(getattr(r, attribute), n)
 
     def test_H_property_range_zero(self):
-        '''tests property setting/getting'''
+        '''Tests property setting/getting.'''
         r = Rectangle(1, 2)
         r.x = 0
         r.y = 0
@@ -220,7 +220,7 @@ given"
 
     # ----------------- Tests for #4 ------------------------
     def test_I_area_no_args(self):
-        '''tests area() method signature'''
+        '''Tests area() method signature.'''
         r = Rectangle(5, 6)
         with self.assertRaises(TypeError) as e:
             Rectangle.area()
@@ -228,7 +228,7 @@ given"
         self.assertEqual(str(e.exception), s)
 
     def test_I_area(self):
-        '''tests area() method compuation'''
+        '''Tests area() method compuation.'''
         r = Rectangle(5, 6)
         self.assertEqual(r.area(), 30)
         w = randrange(10) + 1
@@ -256,7 +256,7 @@ given"
 
     # ----------------- Tests for #5 & #7 ------------------------
     def test_J_display_no_args(self):
-        '''tests display() method signature'''
+        '''Tests display() method signature.'''
         r = Rectangle(9, 8)
         with self.assertRaises(TypeError) as e:
             Rectangle.display()
@@ -380,7 +380,7 @@ given"
         # ----------------- Tests for #6 ------------------------
 
     def test_K_str_no_args(self):
-        '''tests __str__() method signature'''
+        '''Tests __str__() method signature.'''
         r = Rectangle(5, 2)
         with self.assertRaises(TypeError) as e:
             Rectangle.__str__()
@@ -388,7 +388,7 @@ given"
         self.assertEqual(str(e.exception), s)
 
     def test_K_str(self):
-        '''tests __str__() method return'''
+        '''Tests __str__() method return.'''
         r = Rectangle(5, 2)
         s = '[Rectangle] (1) 0/0 - 5/2'
         self.assertEqual(str(r), s)
@@ -408,7 +408,7 @@ given"
 
         # ----------------- Tests for #8 & #9 ------------------------
     def test_L_update_no_args(self):
-        '''tests update() method signature'''
+        '''Tests update() method signature.'''
         r = Rectangle(5, 2)
         with self.assertRaises(TypeError) as e:
             Rectangle.update()
@@ -420,7 +420,7 @@ given"
         self.assertEqual(r.__dict__, d)
 
     def test_L_update_args(self):
-        '''tests update() postional args'''
+        '''Tests update() postional args.'''
         r = Rectangle(5, 2)
         d = r.__dict__.copy()
 
@@ -445,7 +445,7 @@ given"
         self.assertEqual(r.__dict__, d)
 
     def test_L_update_args_bad(self):
-        '''tests update() positional arg fubars'''
+        '''Tests update() positional arg fubars.'''
         r = Rectangle(5, 2)
         d = r.__dict__.copy()
 
@@ -474,7 +474,7 @@ given"
         self.assertEqual(str(e.exception), s)
 
     def test_L_update_kwargs(self):
-        '''tests update() keyword args'''
+        '''Tests update() keyword args.'''
         r = Rectangle(5, 2)
         d = r.__dict__.copy()
 
@@ -499,7 +499,7 @@ given"
         self.assertEqual(r.__dict__, d)
 
     def test_L_update_kwargs_2(self):
-        '''tests update() keyword args'''
+        '''Tests update() keyword args.'''
         r = Rectangle(5, 2)
         d = r.__dict__.copy()
 
@@ -563,7 +563,7 @@ given"
 
     # ----------------- Tests for #13 ------------------------
     def test_M_to_dictionary(self):
-        '''tests to_dictionary() signature:'''
+        '''Tests to_dictionary() signature:'''
         with self.assertRaises(TypeError) as e:
             Rectangle.to_dictionary()
         s = "to_dictionary() missing 1 required positional argument: 'self'"
